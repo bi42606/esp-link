@@ -195,8 +195,8 @@ user_init(void) {
   WEB_Init();
 #endif
 
-  // init the wifi-serial transparent bridge (port 23)
-  serbridgeInit(23, 2323);
+  // init the wifi-serial transparent bridge (port 35000)
+  serbridgeInit(35000, 2323);
   uart_add_recv_cb(&serbridgeUartCb);
 #ifdef SHOW_HEAP_USE
   os_timer_disarm(&prHeapTimer);

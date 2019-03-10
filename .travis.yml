@@ -32,5 +32,12 @@ script:
   - git describe --tags --match 'v*.0' --long --debug
   - make release
 
+deploy:
+  provider: releases
+  api_key: "GITHUB OAUTH TOKEN"
+  file: "FILE TO UPLOAD"
+  skip_cleanup: true
+  draft: true
+
 notifications:
   email: false

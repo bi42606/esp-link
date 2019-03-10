@@ -38,7 +38,8 @@ deploy:
     secure: DCPtaSMgAr1ZNnUxyUap3Q
   file: "FILE TO UPLOAD"
   skip_cleanup: true
-  draft: true
-
+  on:
+    tags: true
+    
 notifications:
   email: true

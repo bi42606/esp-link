@@ -948,6 +948,17 @@ void ICACHE_FLASH_ATTR wifiInit() {
     DBG("Wifi Soft-AP parameters change: %s\n",softap_set_conf? "success":"fail");
 #endif // if defined(AP_SSID)
 
+    //BI42606 try to set SoftAP ip
+    struct ip_info info;
+
+    wifi_softap_dhcps_stop();
+    IP4_ADDR(&info.ip, 192, 168, 0, 10);
+    IP4_ADDR(&info.gw, 192, 168, 0, 10);
+    IP4_ADDR(&info.netmask, 255, 255, 255, 0);
+    wifi_set_ip_info(SOFTAP_IF, &info);
+    wifi_softap_dhcps_start();
+    //end BI42606
+  
     configWifiIP();
 
     // The default sleep mode should be modem_sleep, but we set it here explicitly for good

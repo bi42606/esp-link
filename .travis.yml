@@ -41,4 +41,4 @@ deploy:
   draft: true
 
 notifications:
-  email: false
+  email: true

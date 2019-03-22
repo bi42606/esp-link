@@ -38,7 +38,7 @@ deploy:
   file: 'release.zip'
   skip_cleanup: true
   on:
-    tags
+    ip_port_mod
 
 notifications:
   email: true

@@ -34,10 +34,11 @@ script:
 
 deploy:
   provider: releases
-  api_key: "bbc3c052ea4397847f872ad7c23397dd420c64e0"
-  file: "FILE TO UPLOAD"
+  api_key: '$GITHUB_API_KEY'
+  file: 'release.zip'
   skip_cleanup: true
-  draft: true
-    
+  on:
+    tags
+
 notifications:
   email: true

@@ -28,20 +28,19 @@ script:
   - export XTENSA_TOOLS_ROOT=$PWD/xtensa-lx106-elf/bin/
   - export BRANCH=$TRAVIS_BRANCH
     #- export SDK_BASE=$PWD/esp_iot_sdk_v2.0.0.p1
-  - git tag -n1
-  - git describe --tags --match 'v*.0' --debug
+ # - git tag -n1
  # - git describe --tags --match 'v*.0' --long --debug
   - make release
 
 deploy:
   provider: releases
   api_key: '$GITHUB_API_KEY'
-  file: "*.tgz"
+  file: esp-link-v3.2.70-gfbcda26.tgz
   skip_cleanup: true
   on:
-    all_branches: true
-    tags: true
-    #ip_port_mod
+    #all_branches: true
+    #tags: true
+    ip_port_mod
 
 notifications:
   email: true

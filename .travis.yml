@@ -35,10 +35,11 @@ script:
 deploy:
   provider: releases
   api_key: '$GITHUB_API_KEY'
-  file: '$VERSION.tgz'
+  file: '*.tgz'
   skip_cleanup: true
   on:
-    ip_port_mod
+    all_branches: true
+    tags: true
 
 notifications:
   email: true

@@ -44,4 +44,4 @@ deploy:
     ip_port_mod
 
 notifications:
-  email: true
+  email: false

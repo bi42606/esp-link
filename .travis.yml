@@ -40,7 +40,6 @@ deploy:
   skip_cleanup: true
   on:
     ip_port_mod
-    tags: true
 
 branches:
   except:

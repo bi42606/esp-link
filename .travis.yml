@@ -28,25 +28,17 @@ script:
   - export XTENSA_TOOLS_ROOT=$PWD/xtensa-lx106-elf/bin/
   - export BRANCH=$TRAVIS_BRANCH
     #- export SDK_BASE=$PWD/esp_iot_sdk_v2.0.0.p1
- # - git tag -n1
- # - git describe --tags --match 'v*.0' --long --debug
+  - git tag -n1
+  - git describe --tags --match 'v*.0' --long --debug
   - make release
 
 deploy:
   provider: releases
   api_key: '$GITHUB_API_KEY'
-  file_glob: true
-  file: *.tgz
+  file: '*.tgz'
   skip_cleanup: true
   on:
-    #all_branches: true
     ip_port_mod
-    tags: true
-    
+
 notifications:
   email: true
-
-# blocklist
-branches:
-  except:
-  - /^untagged/
